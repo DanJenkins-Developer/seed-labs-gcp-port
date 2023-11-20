@@ -4,11 +4,9 @@ This document provides instructions on configuring your GCP cloud environment to
 
 Following the instructions, (minus the firewall rules since these are created via terraform later) I made an initial VM in GCP, ran the provided startup script, enabled ssh password authentication for the seed user (vnc is also enabled technically, see issues section). Then I created the image using this VM as the source disk. 
 
-Keep in mind Our ultimate goal project is to convert this setup to be used in Apache CloudStack. At this point configuration takes place within GCP and the terraform file is ran inside the cloud shell. There is a configuration using the ("provider" resource)[https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build] which would allow this setup to be ran from a local envrionment (as opposed to directly cloud shell), but this is an easy switch and doesn't matter for now. 
-
 The the `main.tf` file automates setting up a Seed Labs VM from an image of VM created above (see the `boot_disk` block in the `google_compute_instance` resource). It also sets up a VNC (`google_compute_network` resource) and firewall rules for a VNC and SSH (`google_compute_firewall` resource). These (Google Cloud Docs)[https://cloud.google.com/docs/terraform/get-started-with-terraform] helped me set up the VPC and Subnet.
 
-Theoretically these two solutions could be combined. First, an admin would run the terraform setup form \create_form_scratch to create the initial Seed Labs VM. Next, they would create an image in GCP from this VM. Finally, they would use this newly created image as the boot disk parameter in the \create_from_image terraform file to create a copy of the Seed Labs VM for each user wanting to complete a lab. 
+Keep in mind Our ultimate goal project is to convert this setup to be used in Apache CloudStack. At this point configuration takes place within GCP and the terraform file is ran inside the cloud shell. There is a configuration using the ("provider" resource)[https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build] which would allow this setup to be ran from a local envrionment (as opposed to directly cloud shell), but this is an easy switch and doesn't matter for now. 
 
 ## Step 1: Download custom SEED labs image
 
