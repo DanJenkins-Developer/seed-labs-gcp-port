@@ -1,4 +1,4 @@
-# Automating the creation of SEED lab VMs in GCP via Cloud Shell
+# Automating the creation of SEED lab VMs Infrastructure in GCP via Cloud Shell
 
 This document provides instructions on configuring your GCP cloud environment to run preconfigured SEED lab VMs. Original instructions for creating a SEED lab VM in the Cloud were provided by kevin-w-du on [Github](https://github.com/seed-labs/seed-labs/blob/master/manuals/cloud/seedvm-cloud.md). 
 
