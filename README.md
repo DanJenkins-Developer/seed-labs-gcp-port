@@ -44,8 +44,7 @@ chmod +x start_terraform_script.sh
 ./start_terraform_script.sh
 ```
 
-Ignore the main.py file for now. It's purpose will be to create multiple vms. 
-
+It will take a bit for the VM to start, maybe 4-5 minutes. After it starts you may need to give it another 1-2 minutes to be able to actually SSH into the seed user (just try a couple times, should work eventually). 
 ## Step 5 Log in to the new Seed Labs VM
 
 Navigate back to your VM instaces and you should see one called "custom-instance.." Log in via SSH using putty or whatever client you like with the following credentials:
