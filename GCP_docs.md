@@ -23,11 +23,11 @@ First download the custom SEED labs image we created onto your local machine. Se
 
 - [Cloud Storage API](https://cloud.google.com/storage)
 
-In order to create an image in Compute Engine from a .vmdk file it has to be stored in a bucket first within GCP. 
+In order to create an image in Compute Engine from the .vmdk file it has to be stored in a bucket first within GCP. 
 
 ## Step 3  Create an image in Compute Engine
 
-Go to images in Compute Engine and click the create image button. Choose the .vmdk file as the source. You will have to select it from the bucket you just uploaded it to. Name this image "seed-labs-ubuntu" so that it is the same as the boot disk parmeter in the terraform file.
+Go to images in Compute Engine and click the create image button. Choose the .vmdk file as the source. You will have to select it from the bucket you just uploaded it to. Name this image "seed-labs-ubuntu" (or just make sure the name of the image matches whatever you have in main.tf) so that it is the same as the boot disk parmeter in the terraform file.
 
 ## Step 4 Clone this repository in Cloud Shell and run start_terraform_script.sh 
 
@@ -48,7 +48,11 @@ Ignore the main.py file for now. It's purpose will be to create multiple vms.
 
 ## Step 5 Log in to the new Seed Labs VM
 
-Log in via SSH to the user `seed` on the VM with password `dees`. 
+Navigate back to your VM instaces and you should see one called "custom-instance.." Log in via SSH using putty or whatever client you like with the following credentials:
+```
+ Username: `seed` 
+ Password `dees`. 
+```
 
 ## Issues
 
