@@ -1,4 +1,6 @@
-Steps for creating vm from image:
+Steps for creating vm from seed labs image:
+
+
 
 2. Download the Seedlabs .vmdk image from https://storage.cloud.google.com/seed-labs-bucket/seed-labs-ubuntu.vmdk
 3. Upload the .vmdk image to a bucket via the Cloud Storage API at https://cloud.google.com/storage 
