@@ -8,6 +8,13 @@ The the `main.tf` file automates setting up a Seed Labs VM from an image of VM c
 
 Keep in mind Our ultimate goal project is to convert this setup to be used in Apache CloudStack. At this point configuration takes place within GCP and the terraform file is ran inside the cloud shell. There is a configuration using the ("provider" resource)[https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build] which would allow this setup to be ran from a local envrionment (as opposed to directly cloud shell), but this is an easy switch and doesn't matter for now. 
 
+A basic use case for this terraform set up could go like this:
+```
+1.  User clicks start lab (in vscode extension, web interface, whatever), the terraform config runs and creates a vm, vpc, and subnet for that user's newly        created vm.
+2. Same user or different user wants to create another lab.
+```
+The way terraform works, you don't simply destroy the existing configuration and apply a new vm instance, vpc, subnet, etc. That would disrupt any other user's current VMs. Each terraform file sets up one infrastructure (there's probably a more elegant way to put that, but I don't know all the terminology right now). Meaning, each time a new lab is required a separate infrastructure must be set up. That is the purpose of `main.py` which will eventually create a new directory for each lab a user wants to run and be able to configure the resources in a unique way. So don't mind `main.py` for now, stick to the /init_vm directory. This means you'll only be able to set up one vm at a time for now (should be fine for testing maybe) unless you physically copy the terraform files to a separate directory.
+
 ## Step 1: Download custom SEED labs image
 
 First download the custom SEED labs image we created onto your local machine. See me for image or check discord (CSCI 422 people)
