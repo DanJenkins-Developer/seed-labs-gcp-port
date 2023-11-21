@@ -1,12 +1,19 @@
 import subprocess
 import shutil
-import os
+from os import name, system
 
 # current_dir = os.getcwd()
 
 
 user_base_dir = './user'
 init_dir = './init_vm'
+
+
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 while True:
@@ -20,9 +27,18 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
-        os.system('clear')
+        clear()
         subprocess.call(['python', 'create_lab.py'])
+    elif choice == '2':
+        clear()
+        print("Not implemented yet")
 
+    elif choice == '3':
+        clear()
+        print("Not implemented yet")
+    elif choice == '4':
+        clear()
+        exit()
 
 lab_name = '/lab'
 
