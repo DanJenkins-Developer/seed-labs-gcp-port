@@ -5,7 +5,10 @@ import os
 import sys
 # current_dir = os.getcwd()
 
+# Probably should switch to argparse
 accepted_commands = ["start", "delete"]
+
+# print(sys.argv[0])
 
 user_base_dir = './user'
 init_dir = './init_vm'
