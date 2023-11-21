@@ -2,6 +2,8 @@ import subprocess
 from os import name, system
 import os
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 def create_lab_vm(terraform_variables):
     run_terraform_command('init', {})

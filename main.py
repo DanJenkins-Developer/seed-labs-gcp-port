@@ -5,6 +5,8 @@ import os
 import sys
 # current_dir = os.getcwd()
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 # Probably should switch to argparse
 accepted_commands = ["start", "delete"]
 
