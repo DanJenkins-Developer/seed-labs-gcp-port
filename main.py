@@ -15,7 +15,7 @@ if (len(sys.argv) < 2):
     exit(1)
 
 if (sys.argv[1] == "start"):
-    subprocess.run("python create_lab.py", shell=True)
+    subprocess.run([sys.executable, "./init_vm/create_lab.py"])
 
 user_base_dir = './user'
 init_dir = './init_vm'
