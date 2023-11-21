@@ -50,6 +50,7 @@ terraform_variables = {
 
 run_terraform_command(init_dir, 'init', {})
 run_terraform_command(init_dir, 'apply', terraform_variables)
+exit(1)
 
 # user_lab_dir = user_base_dir + lab_name
 # print(user_lab_dir)
