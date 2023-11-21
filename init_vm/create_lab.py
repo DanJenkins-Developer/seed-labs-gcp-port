@@ -41,9 +41,9 @@ def gather_user_input():
     print("VPC Network Name: " + VPC_NETWORK_NAME)
     print("Subnet Name: " + SUBNET_NAME)
     print("VM Name: " + VM_INSTANCE_NAME)
-    input = str(input("Is this correct? (y/n): "))
+    confirmation = str(input("Is this correct? (y/n): "))
 
-    if (input == "y" or input == "Y" or input == "yes" or input == "Yes" or input == "YES"):
+    if (confirmation == "y" or confirmation == "Y" or confirmation == "yes" or confirmation == "Yes" or confirmation == "YES"):
         run_terraform_command(init_dir, 'init', {})
         run_terraform_command(init_dir, 'apply', terraform_variables)
 
