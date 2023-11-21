@@ -7,6 +7,23 @@ import os
 
 user_base_dir = './user'
 init_dir = './init_vm'
+
+
+while True:
+
+    print("Options: ")
+    print("1. Create a new Lab")
+    print("2. Resume a Lab")
+    print("4. Delete all Labs")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        os.system('clear')
+        subprocess.call(['python', 'create_lab.py'])
+
+
 lab_name = '/lab'
 
 user_lab_dir = user_base_dir + lab_name
@@ -16,6 +33,7 @@ print(user_lab_dir)
 if not os.path.exists(user_base_dir):
     os.makedirs(user_base_dir)
 
+# Create user lab directory
 os.makedirs(user_lab_dir)
 
 for item in os.listdir(init_dir):
