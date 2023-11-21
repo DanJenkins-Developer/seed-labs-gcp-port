@@ -29,7 +29,7 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  metadata_startup_script = "cd /home/seed/Desktop/; wget https://seedsecuritylabs.org/Labs_20.04/Files/ICMP_Redirect/ICMP_Redirect.pdf; wget https://seedsecuritylabs.org/Labs_20.04/Files/ICMP_Redirect/Labsetup.zip"
+  metadata_startup_script = "cd /home/seed/Desktop/; wget https://seedsecuritylabs.org/Labs_20.04/Files/ICMP_Redirect/ICMP_Redirect.pdf; wget https://seedsecuritylabs.org/Labs_20.04/Files/ICMP_Redirect/Labsetup.zip; unzip Labsetup.zip; cd Labsetup; "
   network_interface {
     subnetwork = google_compute_subnetwork.default.id
 
