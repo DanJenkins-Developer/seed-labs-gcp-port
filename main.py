@@ -16,6 +16,9 @@ if (len(sys.argv) < 2):
 
 if (sys.argv[1] == "start"):
     subprocess.run([sys.executable, "./init_vm/create_lab.py"])
+else:
+    print("command is not supported")
+    exit(1)
 
-user_base_dir = './user'
-init_dir = './init_vm'
+# user_base_dir = './user'
+# init_dir = './init_vm'
