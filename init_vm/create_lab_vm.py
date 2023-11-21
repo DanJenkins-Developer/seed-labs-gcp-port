@@ -50,7 +50,7 @@ def gather_user_input():
 
     if (confirmation == "y" or confirmation == "Y" or confirmation == "yes" or confirmation == "Yes" or confirmation == "YES"):
         run_terraform_command(init_dir, 'init', {})
-        # run_terraform_command(init_dir, 'apply', terraform_variables)
+        run_terraform_command(init_dir, 'apply', terraform_variables)
 
 
 gather_user_input()
