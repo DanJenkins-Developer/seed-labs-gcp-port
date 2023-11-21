@@ -1,6 +1,7 @@
 VPC_NETWORK_NAME="cusom-vpc-$(date +%s)"
 SUBNET_NAME="custom-subnet-$(date +%s)"
 INSTANCE_NAME="custom-instance-$(date +%s)"
+STARTUP_SCRIPT="startup_script.sh"
 
 terraform init
 terraform apply -auto-approve \
