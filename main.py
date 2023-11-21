@@ -44,7 +44,7 @@ init_dir = './init_vm'
 terraform_variables = {
     'vpc_network_name': VPC_NETWORK_NAME,
     'subnet_name': SUBNET_NAME,
-    'vm_instance_name': VM_INSTANCE_NAME
+    'instance_name': VM_INSTANCE_NAME
 }
 
 
