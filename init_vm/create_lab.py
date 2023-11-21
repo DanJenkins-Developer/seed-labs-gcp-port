@@ -2,6 +2,11 @@ import subprocess
 from os import name, system
 
 
+def create_lab(terraform_variables):
+    run_terraform_command('init', {})
+    run_terraform_command('apply', terraform_variables)
+
+
 def run_terraform_command(working_dir, command, variables):
     args = ["terraform", command]
 
