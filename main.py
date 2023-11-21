@@ -15,7 +15,7 @@ if (len(sys.argv) < 2):
     exit(1)
 
 if (sys.argv[1] == "start"):
-    subprocess.run([sys.executable, "./init_vm/create_lab.py"])
+    subprocess.run([sys.executable, "./init_vm/create_lab_vm.py"])
 else:
     print("command is not supported")
     exit(1)
