@@ -10,56 +10,62 @@ accepted_commands = ["start", "delete"]
 
 # print(sys.argv[0])
 
+if (len(sys.argv) < 2):
+    print("Please provide a command")
+    exit(1)
+
+if (sys.argv[1] == "start"):
+    subprocess.run("python create_lab.py", shell=True)
 
 user_base_dir = './user'
 init_dir = './init_vm'
 
 
-def clear():
-    if name == 'nt':
-        _ = system('cls')
-    else:
-        _ = system('clear')
+# def clear():
+#     if name == 'nt':
+#         _ = system('cls')
+#     else:
+#         _ = system('clear')
 
 
-def run_terraform_command(working_dir, command, variables):
-    args = ["terraform", command]
+# def run_terraform_command(working_dir, command, variables):
+#     args = ["terraform", command]
 
-    if (command == 'apply'):
-        args.append('-auto-approve')
+#     if (command == 'apply'):
+#         args.append('-auto-approve')
 
-    for key, value in variables.items():
-        args.extend(['-var', '{}={}'.format(key, value)])
+#     for key, value in variables.items():
+#         args.extend(['-var', '{}={}'.format(key, value)])
 
-    result = subprocess.run(args, cwd=working_dir,
-                            capture_output=True, text=True)
+#     result = subprocess.run(args, cwd=working_dir,
+#                             capture_output=True, text=True)
 
-    if result.returncode != 0:
-        print(result.stderr)
-    else:
-        print(result.stdout)
-
-
-lab_name = '/lab'
-
-print("Enter the following details: ")
-VPC_NETWORK_NAME = str(input("VPC Network Name: "))
-SUBNET_NAME = str(input("Subnet Name: "))
-VM_INSTANCE_NAME = str(input("VM Name: "))
-
-user_base_dir = './user'
-init_dir = './init_vm'
-
-terraform_variables = {
-    'vpc_network_name': VPC_NETWORK_NAME,
-    'subnet_name': SUBNET_NAME,
-    'instance_name': VM_INSTANCE_NAME
-}
+#     if result.returncode != 0:
+#         print(result.stderr)
+#     else:
+#         print(result.stdout)
 
 
-run_terraform_command(init_dir, 'init', {})
-run_terraform_command(init_dir, 'apply', terraform_variables)
-exit(1)
+# lab_name = '/lab'
+
+# print("Enter the following details: ")
+# VPC_NETWORK_NAME = str(input("VPC Network Name: "))
+# SUBNET_NAME = str(input("Subnet Name: "))
+# VM_INSTANCE_NAME = str(input("VM Name: "))
+
+# user_base_dir = './user'
+# init_dir = './init_vm'
+
+# terraform_variables = {
+#     'vpc_network_name': VPC_NETWORK_NAME,
+#     'subnet_name': SUBNET_NAME,
+#     'instance_name': VM_INSTANCE_NAME
+# }
+
+
+# run_terraform_command(init_dir, 'init', {})
+# run_terraform_command(init_dir, 'apply', terraform_variables)
+# exit(1)
 
 # user_lab_dir = user_base_dir + lab_name
 # print(user_lab_dir)
