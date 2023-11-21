@@ -2,8 +2,10 @@ import subprocess
 import shutil
 from os import name, system
 import os
+import sys
 # current_dir = os.getcwd()
 
+accepted_commands = ["start", "delete"]
 
 user_base_dir = './user'
 init_dir = './init_vm'
