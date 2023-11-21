@@ -38,6 +38,7 @@ def gather_user_input():
     user_base_dir = './user'
     # init_dir = './init_vm'
     init_dir = os.getcwd()
+    print(init_dir)
     terraform_variables = {
         'vpc_network_name': VPC_NETWORK_NAME,
         'subnet_name': SUBNET_NAME,
