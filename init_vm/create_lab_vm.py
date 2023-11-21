@@ -16,8 +16,9 @@ def run_terraform_command(working_dir, command, variables):
     for key, value in variables.items():
         args.extend(['-var', '{}={}'.format(key, value)])
 
-    result = subprocess.run(args, cwd=working_dir,
-                            capture_output=True, text=True)
+    # result = subprocess.run(args, cwd=working_dir,
+    #                         capture_output=True, text=True)
+    result = subprocess.run(args, cwd=working_dir, text=True)
 
     if result.returncode != 0:
         print(result.stderr)
