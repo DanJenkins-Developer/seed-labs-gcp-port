@@ -19,6 +19,9 @@ def clear():
 def run_terraform_command(working_dir, command, variables):
     args = ["terraform", command]
 
+    if (command == 'apply'):
+        args.append('-auto-approve')
+
     for key, value in variables.items():
         args.extend(['-var', '{}={}'.format(key, value)])
 
