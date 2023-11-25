@@ -3,7 +3,8 @@ from os import name, system
 
 
 def destroy_lab_vm():
-    run_terraform_command('destroy', {})
+    terraform_dir = '././terraform_config'
+    run_terraform_command(terraform_dir, 'destroy', {})
 
 
 def run_terraform_command(working_dir, command, variables):
