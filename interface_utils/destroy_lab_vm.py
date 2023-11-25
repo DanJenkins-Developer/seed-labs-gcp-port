@@ -10,7 +10,7 @@ def destroy_lab_vm():
 def run_terraform_command(working_dir, command, variables):
     args = ["terraform", command]
 
-    if (command == 'apply'):
+    if (command == 'apply' or command == 'destroy'):
         args.append('-auto-approve')
 
     for key, value in variables.items():
