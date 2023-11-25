@@ -39,7 +39,8 @@ elif (sys.argv[1] == "delete"):
         exit(1)
 
     workspace_name = sys.argv[2]
-    Workspace.delete_workspace(workspace_name)
+    workspace = Workspace(workspace_name)
+    workspace.delete_workspace()
     # subprocess.run([sys.executable, "./interface_utils/destroy_lab_vm.py"])
 else:
     print("command is not supported")
