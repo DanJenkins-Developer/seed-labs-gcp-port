@@ -16,7 +16,9 @@ def create_new_workspace():
 
 
 def run_terraform_command(working_dir, command, variables):
-    args = ["terraform", command]
+    # args = ["terraform", command]
+    args = ["terraform"]
+    args.extend(command)
 
     if (command == 'apply'):
         args.append('-auto-approve')
