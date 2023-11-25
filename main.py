@@ -28,7 +28,8 @@ if (sys.argv[1] == "start"):
     workspace_name = sys.argv[2]
     workspace = Workspace(workspace_name)
     print(workspace.name)
-    workspace.create_lab_vm()
+    # workspace.create_lab_vm()
+    workspace.create_workspace()
 
     # print(workspace_name)
     # subprocess.run([sys.executable, "./interface_utils/create_lab_vm.py"])
