@@ -44,6 +44,15 @@ class Workspace:
             command, {})
         self.lab_running = False
 
+    def delete_workspace(self):
+        self.switch_workspace('default')
+        command = ['workspace', 'delete', self.name]
+        self.run_terraform_command(command, {})
+
+    def switch_workspace(self, workspace_name):
+        command = ['workspace', 'select', workspace_name]
+        self.run_terraform_command(command, {})
+
     def get_infrastructure_variables(self):
         terraform_variables = {
             'vpc_network_name': self.name + '-vpc',
