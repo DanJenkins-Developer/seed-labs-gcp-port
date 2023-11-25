@@ -23,3 +23,6 @@ def run_terraform_command(working_dir, command, variables):
         print(result.stderr)
     else:
         print(result.stdout)
+
+
+destroy_lab_vm()
