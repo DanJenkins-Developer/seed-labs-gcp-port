@@ -35,8 +35,8 @@ def gather_user_input():
     VM_INSTANCE_NAME = str(input("VM Name: "))
 
     user_base_dir = './user'
-    # init_dir = './init_vm'
-    init_dir = './'
+    terraform_dir = '../terraform_config'
+
     terraform_variables = {
         'vpc_network_name': VPC_NETWORK_NAME,
         'subnet_name': SUBNET_NAME,
@@ -50,8 +50,8 @@ def gather_user_input():
     confirmation = str(input("Is this correct? (y/n): "))
 
     if (confirmation == "y" or confirmation == "Y" or confirmation == "yes" or confirmation == "Yes" or confirmation == "YES"):
-        run_terraform_command(init_dir, 'init', {})
-        run_terraform_command(init_dir, 'apply', terraform_variables)
+        run_terraform_command(terraform_dir, 'init', {})
+        run_terraform_command(terraform_dir, 'apply', terraform_variables)
 
 
 gather_user_input()
