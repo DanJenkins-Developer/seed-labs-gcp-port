@@ -17,8 +17,9 @@ if (len(sys.argv) < 2):
     exit(1)
 
 if (sys.argv[1] == "start"):
-    # subprocess.run([sys.executable, "./init_vm/create_lab_vm.py"])
     subprocess.run([sys.executable, "./interface_utils/create_lab_vm.py"])
+elif (sys.argv[1] == "delete"):
+    subprocess.run([sys.executable, "./interface_utils/destroy_lab_vm.py"])
 else:
     print("command is not supported")
     exit(1)
