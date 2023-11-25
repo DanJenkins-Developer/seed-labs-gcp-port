@@ -23,6 +23,10 @@ class Workspace:
         command = ['workspace', 'select', self.name]
         self.run_terraform_command(command, {})
 
+    def list_workspaces(self):
+        command = ['workspace', 'list']
+        self.run_terraform_command(command, {})
+
     def initialise_workspace(self):
         command = ['init']
         self.run_terraform_command(command, {})
@@ -59,8 +63,8 @@ class Workspace:
         elif isinstance(command, str):
             args.append(command)
 
-        if (command == 'apply'):
-            args.append('-auto-approve')
+        # if (command == 'apply'):
+        args.append('-auto-approve')
 
         for key, value in variables.items():
             args.extend(['-var', '{}={}'.format(key, value)])
