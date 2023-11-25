@@ -57,7 +57,7 @@ output "instance_startup_script" {
 
 
 resource "google_compute_firewall" "ssh" {
-  name = "allow-ssh"
+  name = "${var.instance_name}-allow-ssh"
   allow {
     ports    = ["22"]
     protocol = "tcp"
@@ -70,7 +70,8 @@ resource "google_compute_firewall" "ssh" {
 }
 
 resource "google_compute_firewall" "vnc" {
-  name = "allow-vnc-again"
+  name = "${var.instance_name}-allow-vnc"
+  #name = "allow-vnc-again"
   allow {
     ports    = ["5901-5910"]
     protocol = "tcp"
