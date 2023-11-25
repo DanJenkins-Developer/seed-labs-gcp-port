@@ -13,6 +13,7 @@ class Workspace:
     def create_workspace(self):
 
         command = ['workspace', 'new', self.name]
+        print(self.name)
         self.run_terraform_command(command, {})
 
     def delete_workspace(self):
