@@ -75,7 +75,7 @@ class Workspace:
         elif isinstance(command, str):
             args.append(command)
 
-        if (command == 'apply'):
+        if (command == 'apply' or command == 'destroy'):
             args.append('-auto-approve')
 
         for key, value in variables.items():
