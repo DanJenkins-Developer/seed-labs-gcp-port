@@ -37,6 +37,12 @@ class Workspace:
             command, self.get_infrastructure_variables())
         self.lab_running = True
 
+    def destroy_workspace(self):
+        command = ['destroy']
+        self.run_terraform_command(
+            command, {})
+        self.lab_running = False
+
     def get_infrastructure_variables(self):
         terraform_variables = {
             'vpc_network_name': self.name + '-vpc',
@@ -51,6 +57,11 @@ class Workspace:
         self.initialise_workspace()
         self.apply_workspace()
         self.lab_running = True
+
+    def destroy_lab_vm(self):
+        self.destroy_workspace()
+        # self.delete_workspace()
+        self.lab_running = False
 
     def run_terraform_command(self, command, variables):
 
