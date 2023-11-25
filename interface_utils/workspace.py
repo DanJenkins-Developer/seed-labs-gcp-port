@@ -8,11 +8,15 @@ class Workspace:
         self.name = name
         self.lab_vm = None
         self.lab_running = False
-        self.create_workspace(self)
+        # self.create_workspace(self)
 
     def create_workspace(self):
 
         command = ['workspace', 'new', self.name]
+        self.run_terraform_command(self, command, {})
+
+    def delete_workspace(self):
+        command = ['workspace', 'delete', self.name]
         self.run_terraform_command(self, command, {})
 
     def select_workspace(self):
