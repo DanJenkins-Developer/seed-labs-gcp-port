@@ -25,6 +25,7 @@ def run_terraform_command(working_dir, command, variables):
 
     elif (command == 'workspace new'):
         args.append(variables)
+        print(args)
     # result = subprocess.run(args, cwd=working_dir,
     #                         capture_output=True, text=True)
     result = subprocess.run(args, cwd=working_dir, text=True)
