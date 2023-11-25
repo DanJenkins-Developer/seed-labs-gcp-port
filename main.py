@@ -26,7 +26,7 @@ if (sys.argv[1] == "start"):
         exit(1)
 
     workspace_name = sys.argv[2]
-    workspace = Workspace(sys.argv[2])
+    workspace = Workspace(workspace_name)
     print(workspace.name)
     workspace.create_lab_vm()
 
