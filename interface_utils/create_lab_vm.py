@@ -7,6 +7,13 @@ def create_lab_vm(terraform_variables):
     run_terraform_command('apply', terraform_variables)
 
 
+def create_new_workspace():
+    terraform_dir = '././terraform_config'
+    workspace_name = str(input("Workspace Name: "))
+    run_terraform_command(terraform_dir, 'workspace new', workspace_name)
+    pass
+
+
 def run_terraform_command(working_dir, command, variables):
     args = ["terraform", command]
 
