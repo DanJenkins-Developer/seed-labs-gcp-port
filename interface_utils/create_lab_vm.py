@@ -20,9 +20,11 @@ def run_terraform_command(working_dir, command, variables):
     if (command == 'apply'):
         args.append('-auto-approve')
 
-    for key, value in variables.items():
-        args.extend(['-var', '{}={}'.format(key, value)])
+        for key, value in variables.items():
+            args.extend(['-var', '{}={}'.format(key, value)])
 
+    elif (command == 'workspace new'):
+        args.append(variables)
     # result = subprocess.run(args, cwd=working_dir,
     #                         capture_output=True, text=True)
     result = subprocess.run(args, cwd=working_dir, text=True)
@@ -31,6 +33,24 @@ def run_terraform_command(working_dir, command, variables):
         print(result.stderr)
     else:
         print(result.stdout)
+
+# def run_terraform_command(working_dir, command, variables):
+#     args = ["terraform", command]
+
+#     if (command == 'apply'):
+#         args.append('-auto-approve')
+
+#     for key, value in variables.items():
+#         args.extend(['-var', '{}={}'.format(key, value)])
+
+#     # result = subprocess.run(args, cwd=working_dir,
+#     #                         capture_output=True, text=True)
+#     result = subprocess.run(args, cwd=working_dir, text=True)
+
+#     if result.returncode != 0:
+#         print(result.stderr)
+#     else:
+#         print(result.stdout)
 
 
 def gather_user_input():
