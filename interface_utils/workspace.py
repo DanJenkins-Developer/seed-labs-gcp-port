@@ -13,23 +13,23 @@ class Workspace:
     def create_workspace(self):
 
         command = ['workspace', 'new', self.name]
-        self.run_terraform_command(self, command, {})
+        self.run_terraform_command(command, {})
 
     def delete_workspace(self):
         command = ['workspace', 'delete', self.name]
-        self.run_terraform_command(self, command, {})
+        self.run_terraform_command(command, {})
 
     def select_workspace(self):
         command = ['workspace', 'select', self.name]
-        self.run_terraform_command(self, command, {})
+        self.run_terraform_command(command, {})
 
     def initialise_workspace(self):
         command = ['init']
-        self.run_terraform_command(self, command, {})
+        self.run_terraform_command(command, {})
 
     def apply_workspace(self, variables):
         command = ['apply']
-        self.run_terraform_command(self, command, variables)
+        self.run_terraform_command(command, variables)
         self.lab_running = True
 
     def run_terraform_command(self, command, variables):
