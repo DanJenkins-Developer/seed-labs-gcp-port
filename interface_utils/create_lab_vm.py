@@ -11,7 +11,7 @@ from os import name, system
 def create_new_workspace():
     terraform_dir = '././terraform_config'
     workspace_name = str(input("Workspace Name: "))
-    command = 'workspace new' + ' ' + workspace_name
+    command = ['workspace', 'new', workspace_name]
     run_terraform_command(terraform_dir, command, {})
 
 
