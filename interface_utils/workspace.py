@@ -75,6 +75,8 @@ class Workspace:
         elif isinstance(command, str):
             args.append(command)
 
+        print(args)
+
         # if (command == 'apply'):
         args.append('-auto-approve')
 
