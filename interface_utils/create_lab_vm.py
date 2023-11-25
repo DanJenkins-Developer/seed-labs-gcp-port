@@ -57,6 +57,7 @@ def gather_user_input():
     confirmation = str(input("Is this correct? (y/n): "))
 
     if (confirmation == "y" or confirmation == "Y" or confirmation == "yes" or confirmation == "Yes" or confirmation == "YES"):
+        create_new_workspace()
         run_terraform_command(terraform_dir, 'init', {})
         run_terraform_command(terraform_dir, 'apply', terraform_variables)
 
