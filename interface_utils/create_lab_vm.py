@@ -2,30 +2,31 @@ import subprocess
 from os import name, system
 
 
-def create_lab_vm(terraform_variables):
-    create_new_workspace()
-    run_terraform_command('init', {})
-    run_terraform_command('apply', terraform_variables)
+# def create_lab_vm(terraform_variables):
+#     create_new_workspace()
+#     run_terraform_command('init', {})
+#     run_terraform_command('apply', terraform_variables)
 
 
 def create_new_workspace():
     terraform_dir = '././terraform_config'
     workspace_name = str(input("Workspace Name: "))
-    run_terraform_command(terraform_dir, 'workspace new', workspace_name)
+    command = 'workspace new' + ' ' + workspace_name
+    run_terraform_command(terraform_dir, command, {})
 
 
-def run_terraform_command(working_dir, command, variables):
+def run_terraform_command(working_dir, command, variables=""):
     args = ["terraform", command]
 
     if (command == 'apply'):
         args.append('-auto-approve')
 
-        for key, value in variables.items():
-            args.extend(['-var', '{}={}'.format(key, value)])
+    for key, value in variables.items():
+        args.extend(['-var', '{}={}'.format(key, value)])
 
-    elif (command == 'workspace new'):
-        args.append(variables)
-        print(args)
+    # elif (command == 'workspace new'):
+    #     args.append(variables)
+    #     print(args)
     # result = subprocess.run(args, cwd=working_dir,
     #                         capture_output=True, text=True)
     result = subprocess.run(args, cwd=working_dir, text=True)
