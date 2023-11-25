@@ -34,7 +34,13 @@ if (sys.argv[1] == "start"):
     # print(workspace_name)
     # subprocess.run([sys.executable, "./interface_utils/create_lab_vm.py"])
 elif (sys.argv[1] == "delete"):
-    subprocess.run([sys.executable, "./interface_utils/destroy_lab_vm.py"])
+    if (len(sys.argv) < 3):
+        print("Please provide a workspace name")
+        exit(1)
+
+    workspace_name = sys.argv[2]
+    Workspace.delete_workspace(workspace_name)
+    # subprocess.run([sys.executable, "./interface_utils/destroy_lab_vm.py"])
 else:
     print("command is not supported")
     exit(1)
