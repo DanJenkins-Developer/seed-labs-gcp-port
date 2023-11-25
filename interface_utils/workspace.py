@@ -8,7 +8,7 @@ class Workspace:
         self.name = name
         self.lab_vm = None
         self.lab_running = False
-        self.create_workspace(self)
+        self.create_workspace()
 
     def create_workspace(self):
 
