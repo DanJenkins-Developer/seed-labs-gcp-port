@@ -35,7 +35,7 @@ def gather_user_input():
     VM_INSTANCE_NAME = str(input("VM Name: "))
 
     user_base_dir = './user'
-    terraform_dir = '../terraform_config'
+    terraform_dir = '././terraform_config'
 
     terraform_variables = {
         'vpc_network_name': VPC_NETWORK_NAME,
