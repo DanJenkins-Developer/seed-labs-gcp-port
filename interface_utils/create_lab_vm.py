@@ -15,7 +15,7 @@ def create_new_workspace():
     run_terraform_command(terraform_dir, command, {})
 
 
-def run_terraform_command(working_dir, command, variables=""):
+def run_terraform_command(working_dir, command, variables):
     args = ["terraform", command]
 
     if (command == 'apply'):
@@ -29,6 +29,7 @@ def run_terraform_command(working_dir, command, variables=""):
     #     print(args)
     # result = subprocess.run(args, cwd=working_dir,
     #                         capture_output=True, text=True)
+    print(args)
     result = subprocess.run(args, cwd=working_dir, text=True)
 
     if result.returncode != 0:
