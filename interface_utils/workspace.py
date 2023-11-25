@@ -8,7 +8,7 @@ class Workspace:
         self.name = name
         self.lab_vm = None
         self.lab_running = False
-        self.create_workspace()
+        # self.create_workspace()
 
     def create_workspace(self):
 
@@ -27,9 +27,25 @@ class Workspace:
         command = ['init']
         self.run_terraform_command(command, {})
 
-    def apply_workspace(self, variables):
+    def apply_workspace(self):
         command = ['apply']
-        self.run_terraform_command(command, variables)
+        self.run_terraform_command(
+            command, self.get_infrastructure_variables())
+        self.lab_running = True
+
+    def get_infrastructure_variables(self):
+        terraform_variables = {
+            'vpc_network_name': self.name + '-vpc',
+            'subnet_name': self.name + '-subnet',
+            'instance_name': self.name + '-instance',
+        }
+
+        return terraform_variables
+
+    def create_lab_vm(self):
+        self.create_workspace()
+        self.initialise_workspace()
+        self.apply_workspace()
         self.lab_running = True
 
     def run_terraform_command(self, command, variables):
