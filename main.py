@@ -14,8 +14,8 @@ terraform = Terraform()
 
 print(terraform.get_current_workspace().name)
 
-terraform.create_workspace('test')
-terraform.select_workspace('test')
+terraform.create_workspace('test2')
+terraform.select_workspace('test2')
 print(terraform.get_current_workspace().name)
 
 
