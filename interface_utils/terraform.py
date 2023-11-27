@@ -4,9 +4,6 @@ from workspace import Workspace
 
 class Terraform:
 
-    # workspaces = []
-    # current_workspace: Workspace = None
-
     def __init__(self):
 
         # Set the terraform directory
@@ -18,11 +15,17 @@ class Terraform:
         self.current_workspace: Workspace = default_workspace
 
     def create_workspace(self, name):
+
+        # Check if the workspace already exists
         if (name in self.workspaces):
             print("Workspace already exists")
             return
+
+        # Create the workspace
         command = ['workspace', 'new', name]
         self.run_terraform_command(command, {})
+
+        # Add the workspace to the list of workspaces
         workspace = Workspace(name)
         self.workspaces.append(workspace)
 
