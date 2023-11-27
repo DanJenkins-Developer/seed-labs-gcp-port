@@ -1,5 +1,5 @@
 import subprocess
-from workspace import Workspace
+from .workspace import Workspace
 
 
 class Terraform:
