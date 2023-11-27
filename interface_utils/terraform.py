@@ -4,11 +4,18 @@ from workspace import Workspace
 
 class Terraform:
 
-    workspaces = []
-    current_workspace: Workspace = None
+    # workspaces = []
+    # current_workspace: Workspace = None
 
     def __init__(self):
-        pass
+
+        # Set the terraform directory
+        self.terraform_dir = '././terraform_config'
+
+        # Create the default workspace
+        default_workspace = Workspace('default')
+        self.workspaces = [default_workspace]
+        self.current_workspace: Workspace = default_workspace
 
     def create_workspace(self, name):
         if (name in self.workspaces):
