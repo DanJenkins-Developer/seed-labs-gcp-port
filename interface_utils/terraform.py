@@ -45,14 +45,28 @@ class Terraform:
         return self.current_workspace
 
     def run_terraform_command(self, command, variables):
-        terraform_command = ['terraform']
-        terraform_command.extend(command)
+        working_dir = self.terraform_dir
+        # args = ["terraform", command]
+        args = ["terraform"]
+
+        if isinstance(command, list):
+            args.extend(command)
+        elif isinstance(command, str):
+            args.append(command)
+
+        if (command == 'apply' or command == 'destroy'):
+            args.append('-auto-approve')
 
         for key, value in variables.items():
-            terraform_command.extend(['-var', key + '=' + value])
+            args.extend(['-var', '{}={}'.format(key, value)])
 
-        print(terraform_command)
-        subprocess.run(terraform_command)
+        # print(args)
+        result = subprocess.run(args, cwd=working_dir, text=True)
+
+        if result.returncode != 0:
+            print(result.stderr)
+        else:
+            print(result.stdout)
 
     def get_infrastructure_variables(current_workspace: Workspace):
         terraform_variables = {
