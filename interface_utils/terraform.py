@@ -1,5 +1,51 @@
 import subprocess
+from workspace import Workspace
 
 
 class Terraform:
+
+    workspaces = []
+    current_workspace: Workspace = None
+
+    def __init__(self):
+        pass
+
+    def create_workspace(self, name):
+        if (name in self.workspaces):
+            print("Workspace already exists")
+            return
+        command = ['workspace', 'new', name]
+        self.run_terraform_command(command, {})
+        workspace = Workspace(name)
+        self.workspaces.append(workspace)
+
+    def delete_workspace(self, name):
+        command = ['workspace', 'delete', name]
+        self.run_terraform_command(command, {})
+        workspace = Workspace(name)
+        self.workspaces.remove(workspace)
+
+    def select_workspace(self, name):
+        command = ['workspace', 'select', name]
+        self.run_terraform_command(command, {})
+        workspace = Workspace(name)
+        self.current_workspace = workspace
+
+    def run_terraform_command(self, command, variables):
+        terraform_command = ['terraform']
+        terraform_command.extend(command)
+
+        for key, value in variables.items():
+            terraform_command.extend(['-var', key + '=' + value])
+
+        print(terraform_command)
+        subprocess.run(terraform_command)
+
+    def get_infrastructure_variables(current_workspace: Workspace):
+        terraform_variables = {
+            'vpc_network_name': current_workspace.name + '-vpc',
+            'subnet_name': current_workspace.name + '-subnet',
+            'instance_name': current_workspace.name + '-instance',
+        }
+        return terraform_variables
     pass
