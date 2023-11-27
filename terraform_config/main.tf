@@ -54,6 +54,10 @@ output "instance_startup_script" {
   value = google_compute_instance.default.metadata_startup_script
   description = "The startup script used by the instance"
 }
+output "instance_ips" {
+  value = "${join(" ", google_compute_instance.default.*.network_interface.0.access_config.0.nat_ip)}"
+  description = "The public IP address of the newly created instance"
+}
 
 
 resource "google_compute_firewall" "ssh" {
