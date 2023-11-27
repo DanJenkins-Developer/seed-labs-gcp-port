@@ -12,10 +12,11 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 terraform = Terraform()
 
-print(terraform.get_current_workspace().name)
 
-terraform.create_workspace('test2')
-terraform.select_workspace('test2')
+# terraform.create_workspace('test2')
+# print(terraform.get_current_workspace().name)
+
+terraform.select_workspace('default')
 print(terraform.get_current_workspace().name)
 
 
