@@ -46,7 +46,6 @@ class Terraform:
         return self.current_workspace
 
     def run_terraform_command(self, command, variables):
-        os.chdir(os.path.dirname(os.path.abspath(__file__)))
         working_dir = self.terraform_dir
         # args = ["terraform", command]
         args = ["terraform"]
