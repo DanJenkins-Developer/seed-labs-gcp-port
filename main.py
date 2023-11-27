@@ -4,11 +4,15 @@ from os import name, system
 import os
 import sys
 from interface_utils.workspace import Workspace
-
+from interface_utils.terraform import Terraform
 
 # current_dir = os.getcwd()
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+terraform = Terraform()
+
+print(terraform.get_current_workspace().name)
 
 # Probably should switch to argparse
 accepted_commands = ["start", "delete"]
