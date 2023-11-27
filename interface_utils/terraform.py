@@ -41,6 +41,9 @@ class Terraform:
         workspace = Workspace(name)
         self.current_workspace = workspace
 
+    def get_current_workspace(self):
+        return self.current_workspace
+
     def run_terraform_command(self, command, variables):
         terraform_command = ['terraform']
         terraform_command.extend(command)
