@@ -52,7 +52,7 @@ class Terraform:
     def apply_workspace(self):
         command = ['apply']
         self.run_terraform_command(
-            command, self.get_infrastructure_variables())
+            command, self.get_infrastructure_variables(self.current_workspace))
         # self.lab_running = True
 
     def create_infrastructure(self, workspace_name):
