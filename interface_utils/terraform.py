@@ -45,6 +45,27 @@ class Terraform:
     def get_current_workspace(self):
         return self.current_workspace
 
+    def initialize_workspace(self):
+        command = ['init']
+        self.run_terraform_command(command, {})
+
+    def apply_workspace(self):
+        command = ['apply']
+        self.run_terraform_command(
+            command, self.get_infrastructure_variables())
+        # self.lab_running = True
+
+    def create_infrastructure(self, workspace_name):
+        self.select_workspace(workspace_name)
+        self.apply_workspace(self.current_workspace.name)
+        self.initialize_workspace()
+
+    def destroy_infrastructure(self):
+        command = ['destroy']
+        self.run_terraform_command(
+            command, {})
+        # self.lab_running = False
+
     def run_terraform_command(self, command, variables):
         working_dir = self.terraform_dir
         # args = ["terraform", command]
