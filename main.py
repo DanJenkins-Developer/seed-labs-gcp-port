@@ -18,7 +18,8 @@ terraform = Terraform()
 
 # terraform.select_workspace('default')
 print(terraform.get_current_workspace().name)
-
+terraform.create_workspace('test2')
+terraform.create_infrastructure('test2')
 
 # Probably should switch to argparse
 # accepted_commands = ["start", "delete"]
