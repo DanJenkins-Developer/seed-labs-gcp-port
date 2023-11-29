@@ -52,7 +52,7 @@ class Terraform:
     def apply_workspace(self):
         command = ['apply']
         self.run_terraform_command(
-            command, self.get_infrastructure_variables(self.current_workspace))
+            command, self.get_infrastructure_variables())
         # self.lab_running = True
 
     def create_infrastructure(self, workspace_name):
@@ -91,11 +91,11 @@ class Terraform:
         else:
             print(result.stdout)
 
-    def get_infrastructure_variables(current_workspace: Workspace):
+    def get_infrastructure_variables(self):
         terraform_variables = {
-            'vpc_network_name': current_workspace.name + '-vpc',
-            'subnet_name': current_workspace.name + '-subnet',
-            'instance_name': current_workspace.name + '-instance',
+            'vpc_network_name': self.current_workspace.name + '-vpc',
+            'subnet_name': self.current_workspace.name + '-subnet',
+            'instance_name': self.current_workspace.name + '-instance',
         }
         return terraform_variables
     pass
