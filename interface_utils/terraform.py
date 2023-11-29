@@ -56,6 +56,7 @@ class Terraform:
         # self.lab_running = True
 
     def create_infrastructure(self, workspace_name):
+        print(workspace_name)
         self.select_workspace(workspace_name)
         self.apply_workspace()
         self.initialize_workspace()
