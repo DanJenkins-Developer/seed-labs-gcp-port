@@ -57,7 +57,7 @@ class Terraform:
 
     def create_infrastructure(self, workspace_name):
         self.select_workspace(workspace_name)
-        self.apply_workspace(self.current_workspace.name)
+        self.apply_workspace()
         self.initialize_workspace()
 
     def destroy_infrastructure(self):
